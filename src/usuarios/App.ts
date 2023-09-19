@@ -2,7 +2,8 @@ require('dotenv').config();
 import express from 'express';
 import router  from './infrastructure/router/prestamoRoueter';
 import dbConnecion from './infrastructure/repository/configdb/configpostgrest';
-import Credito from './infrastructure/model/credito'
+import Credito from './infrastructure/model/credito';
+import Cuotas from './infrastructure/model/Cuotas'
 const app = express();
 
 const port = process.env.PORT || 4000;
@@ -14,6 +15,7 @@ app.use('/', router);
 
 // SICRONIZAR MI MODELO EN MI BD
 //Credito.sync({alter: true});
+Cuotas.sync({alter: true});
 
 
    dbConnecion()

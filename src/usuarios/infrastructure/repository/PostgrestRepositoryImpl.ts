@@ -11,7 +11,7 @@ class PrestamoRepositoryImpl implements PrestamoRepository{
 
          console.log(prestamo);
 
-         await Credito.create({
+        const cabacezera= await Credito.create({
             cliente:prestamo.cliente,
             monto_prestamo:prestamo.monto,
             tasa_interes:prestamo.tasaInteres,
@@ -19,7 +19,7 @@ class PrestamoRepositoryImpl implements PrestamoRepository{
             state:prestamo.state
          });
 
-         console.log('Guadado de forma Exitosa');
+         console.log('Guadado de forma Exitosa' + cabacezera);
 
          return prestamo;// throw new Error('Method not implemented.');
    }

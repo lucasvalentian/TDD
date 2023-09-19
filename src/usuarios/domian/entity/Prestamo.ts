@@ -1,5 +1,6 @@
 export class Prestamo {
     constructor(
+      
       public cliente: string,
       public monto: number,
       public tasaInteres: number,

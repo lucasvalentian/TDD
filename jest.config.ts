@@ -13,7 +13,7 @@ const config: Config.InitialOptions = {
   testMatch: ['**/__tests__/**/*.test.ts'],
   globals: {
     'ts-jest': {
-      tsconfig: 'tsconfig.json', // Ruta a tu archivo tsconfig.json
+      tsconfig: 'tsconfig.json', // Corrige la ruta al archivo tsconfig.json
     },
   },
 };

@@ -1,16 +1,17 @@
+import { BaseEntity } from "../entity/BaseEntity";
 import { Cuota } from "../entity/Cuota";
 import { Prestamo } from "../entity/Prestamo";
 
 
-export class CalculadoraCuotasService {
+export class CalculadoraCuotasService extends BaseEntity {
 
     calcularCuotas(prestamo: Prestamo): Cuota[] {
 
         const cuotas: Cuota[] = [];
 
-        const montoPrestamo = prestamo.monto;
-        const tasaInteres = prestamo.tasaInteres;
-        const plazo=prestamo.plazo;
+        const montoPrestamo = prestamo.monto_cre;
+        const tasaInteres = prestamo.tasa;
+        const plazo=prestamo.plazo_cre;
        
 
         const tasaMensual = tasaInteres / 12 / 100;
@@ -29,8 +30,15 @@ export class CalculadoraCuotasService {
             const fechaVencimiento = new Date(fechaActual);
             fechaVencimiento.setMonth(fechaActual.getMonth() + i + 1);
 
-            const cuota = new Cuota(fechaVencimiento, cuotaMensual,interesMensual,capitalMensual);
+            const cuota = new Cuota(
+                fechaVencimiento, 
+                CalculadoraCuotasService.Round(cuotaMensual),
+                interesMensual,
+                capitalMensual);
+
+
             cuotas.push(cuota);
+            
         }
 
         

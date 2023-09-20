@@ -15,7 +15,7 @@ app.use('/', router);
 
 // SICRONIZAR MI MODELO EN MI BD
 //Credito.sync({alter: true});
-Cuotas.sync({alter: true});
+//Cuotas.sync({alter: true});
 
 
    dbConnecion()

@@ -1,6 +1,7 @@
 
 import { Sequelize, DataTypes } from 'sequelize';
 import sequelize from '../db/db';
+import Credito from './credito'
 
 const Cuotas=sequelize.define('cuotas', { 
 
